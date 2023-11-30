@@ -13,11 +13,14 @@ import baseball.view.MessageView;
 import baseball.view.ResultView;
 
 public class AppConfig implements Config {
+    public static AppConfig instance() {
+        return LazyHolder.INSTANCE;
+    }
+
     @Override
     public BaseballGameController baseballGameController() {
         return LazyHolder.baseballGameController;
     }
-
 
     private static class LazyHolder {
         private static final AppConfig INSTANCE = new AppConfig();
