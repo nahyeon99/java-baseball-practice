@@ -40,7 +40,7 @@ public class BaseballNumbers {
     }
 
     private static void validateDuplicateNumber(final List<BaseballNumber> numbers) {
-        if (!Objects.equals(MAX_NUMBERS_COUNT, numbers.stream().distinct().count())) {
+        if (!Objects.equals(MAX_NUMBERS_COUNT, (int) numbers.stream().distinct().count())) {
             throw new IllegalArgumentException(INVALID_DUPLICATE_NUMBER.getKorean());
         }
     }
@@ -51,18 +51,39 @@ public class BaseballNumbers {
         }
     }
 
-    private int getStrikeCount(BaseballNumbers o) {
+    private int getStrikeCount(BaseballNumbers other) {
         return (int) IntStream.range(RANGE_ZERO, MAX_NUMBERS_COUNT)
-                .filter(i -> numbers.get(i).equals(o.numbers.get(i)))
+                .filter(idx -> numbers.get(idx).equals(other.numbers.get(idx)))
                 .count();
     }
 
-    private int getBallCount(BaseballNumbers o) {
+    private int getBallCount(BaseballNumbers other) {
         return (int) IntStream.range(RANGE_ZERO, MAX_NUMBERS_COUNT)
-                .filter(i -> !numbers.get(i).equals(o.numbers.get(i)) &&
-                        o.numbers.stream()
-                                .filter(j -> j.equals(this.numbers.get(i)))
-                                .count() == 1)
+                .filter(idx -> {
+                    BaseballNumber otherNumber = other.numbers.get(idx);
+
+                    return !numbers.get(idx).equals(otherNumber) &&
+                            numbers.contains(otherNumber);
+                })
                 .count();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (!(other instanceof BaseballNumbers)) {
+            return false;
+        }
+        BaseballNumbers that = (BaseballNumbers) other;
+        return MAX_NUMBERS_COUNT == (int) IntStream.range(RANGE_ZERO, MAX_NUMBERS_COUNT)
+                .filter(idx -> numbers.get(idx).equals(that.numbers.get(idx)))
+                .count();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numbers);
     }
 }
