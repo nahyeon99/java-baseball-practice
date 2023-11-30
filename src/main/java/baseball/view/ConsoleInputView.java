@@ -5,13 +5,13 @@ import baseball.util.InputUtil;
 public class ConsoleInputView implements InputView {
     @Override
     public int inputBaseballNumbers() {
-        System.out.print(OutputMessage.INPUT_NUMBERS);
+        System.out.print(OutputMessage.INPUT_NUMBERS.korean);
         return InputUtil.readNumber(InputUtil.readLine());
     }
 
     @Override
     public int inputRestartStatus() {
-        System.out.println(OutputMessage.INPUT_RESTART_NUMBER);
+        System.out.println(OutputMessage.INPUT_RESTART_NUMBER.korean);
         return InputUtil.readNumber(InputUtil.readLine());
     }
 
