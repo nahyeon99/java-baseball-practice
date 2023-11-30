@@ -30,14 +30,14 @@ public class BaseballNumber {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object other) {
+        if (this == other) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(other instanceof BaseballNumber)) {
             return false;
         }
-        BaseballNumber that = (BaseballNumber) o;
+        BaseballNumber that = (BaseballNumber) other;
         return number == that.number;
     }
 
