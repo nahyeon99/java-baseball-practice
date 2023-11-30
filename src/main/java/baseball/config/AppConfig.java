@@ -27,9 +27,9 @@ public class AppConfig implements Config {
         private static final InputView inputView = createInputView();
         private static final MessageView messageView = createMessageView();
         private static final ResultView resultView = createResultView();
+        private static final RandomNumbersGenerator randomNumbersGenerator = createRandomNumbersGenerator();
         private static final Computer computer = createComputer();
         private static final HintService hintService = createHintService();
-        private static final RandomNumbersGenerator randomNumbersGenerator = createRandomNumbersGenerator();
         private static final BaseballGameController baseballGameController = createBaseballGameController();
 
         private static InputView createInputView() {
