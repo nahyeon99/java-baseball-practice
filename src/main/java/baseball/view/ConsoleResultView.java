@@ -5,7 +5,7 @@ import baseball.dto.HintResultDto;
 public class ConsoleResultView implements ResultView {
     @Override
     public void printResultOfNothing() {
-        System.out.println(OutputMessage.NOTHING);
+        System.out.println(OutputMessage.NOTHING.korean);
     }
 
     @Override
