@@ -6,15 +6,15 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Objects;
 
 public class InputUtil {
-    public static int readNumber() {
+    public static int readNumber(String input) {
         try {
-            return Integer.parseInt(readLine());
+            return Integer.parseInt(input);
         } catch (NumberFormatException exception) {
             throw new IllegalArgumentException(INVALID_NUMBER_FORMAT.getKorean());
         }
     }
 
-    private static String readLine() {
+    public static String readLine() {
         String input = Console.readLine();
 
         if (Objects.isNull(input)) {
