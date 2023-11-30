@@ -3,12 +3,12 @@ package baseball.view;
 public class ConsoleMessageView implements MessageView {
     @Override
     public void printWelcomeMessage() {
-        System.out.println(OutputMessage.WELCOME);
+        System.out.println(OutputMessage.WELCOME.korean);
     }
 
     @Override
     public void printTerminationMessage() {
-        System.out.println(OutputMessage.TERMINATION);
+        System.out.println(OutputMessage.TERMINATION.korean);
     }
 
     private enum OutputMessage {
