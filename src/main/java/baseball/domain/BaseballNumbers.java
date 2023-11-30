@@ -1,6 +1,7 @@
 package baseball.domain;
 
 import static baseball.exception.ExceptionMessage.INVALID_DUPLICATE_NUMBER;
+import static baseball.exception.ExceptionMessage.INVALID_NUMBER_SIZE;
 
 import baseball.dto.HintResultDto;
 import java.util.List;
@@ -25,6 +26,7 @@ public class BaseballNumbers {
     }
 
     public static BaseballNumbers userOf(final List<BaseballNumber> userNumbers) {
+        validateNumberSize(userNumbers);
         validateDuplicateNumber(userNumbers);
 
         return new BaseballNumbers(userNumbers);
@@ -40,6 +42,12 @@ public class BaseballNumbers {
     private static void validateDuplicateNumber(final List<BaseballNumber> numbers) {
         if (Objects.equals(MAX_NUMBERS_COUNT, numbers.stream().distinct().count())) {
             throw new IllegalArgumentException(INVALID_DUPLICATE_NUMBER.getKorean());
+        }
+    }
+
+    private static void validateNumberSize(final List<BaseballNumber> numbers) {
+        if (numbers.size() != MAX_NUMBERS_COUNT) {
+            throw new IllegalArgumentException(INVALID_NUMBER_SIZE.getKorean());
         }
     }
 
