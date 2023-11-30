@@ -42,11 +42,12 @@ public class BaseballGameController {
     }
 
     private void play() {
+        BaseballNumbers computerNumbers = computer.createRandomNumbers();
         while (true) {
-            BaseballNumbers computerNumbers = computer.createRandomNumbers();
             HintResult hintResult = playOnce(computerNumbers);
 
             if (is3Strike(hintResult)) {
+                printGameEnd();
                 break;
             }
         }
@@ -78,5 +79,9 @@ public class BaseballGameController {
         }
 
         resultView.printResultOfBallOrStrike(hintResult.getResult());
+    }
+
+    private void printGameEnd() {
+        messageView.printTerminationMessage();
     }
 }
