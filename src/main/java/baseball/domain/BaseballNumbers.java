@@ -40,7 +40,7 @@ public class BaseballNumbers {
     }
 
     private static void validateDuplicateNumber(final List<BaseballNumber> numbers) {
-        if (Objects.equals(MAX_NUMBERS_COUNT, numbers.stream().distinct().count())) {
+        if (!Objects.equals(MAX_NUMBERS_COUNT, numbers.stream().distinct().count())) {
             throw new IllegalArgumentException(INVALID_DUPLICATE_NUMBER.getKorean());
         }
     }
