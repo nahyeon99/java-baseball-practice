@@ -23,7 +23,9 @@ public class BaseballController {
 
     public void run() {
         do {
+            outputView.printGameStart();
             playGame();
+            outputView.printGameFinish();
         } while (isRestart());
     }
 
