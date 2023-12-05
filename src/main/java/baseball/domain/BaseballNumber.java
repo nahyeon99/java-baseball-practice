@@ -45,4 +45,9 @@ public class BaseballNumber {
             throw new IllegalArgumentException(INVALID_NUMBER_RANGE.getKorean());
         }
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(number);
+    }
 }

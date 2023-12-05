@@ -9,7 +9,7 @@ import java.util.List;
 public class InputView {
 
     public List<Integer> inputBaseballNumbers() {
-        System.out.println(Message.INPUT_BASEBALL_NUMBERS.korean);
+        System.out.print(Message.INPUT_BASEBALL_NUMBERS.korean);
 
         return readNumbers(readLine(), Message.BASEBALL_NUMBER_DELIMITER.korean);
     }

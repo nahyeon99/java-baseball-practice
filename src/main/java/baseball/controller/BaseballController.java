@@ -32,6 +32,7 @@ public class BaseballController {
 
         while (true) {
             ResultDto result = playGameOnce(computerNumbers);
+            outputView.printHint(result);
 
             if (result.is3Strike()) {
                 break;

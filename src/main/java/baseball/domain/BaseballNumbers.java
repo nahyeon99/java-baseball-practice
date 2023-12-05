@@ -61,4 +61,13 @@ public class BaseballNumbers {
     private boolean contains(BaseballNumber baseballNumber) {
         return numbers.contains(baseballNumber);
     }
+
+    @Override
+    public String toString() {
+        String numbersStr = this.numbers.stream()
+                .map(BaseballNumber::toString)
+                .collect(Collectors.joining());
+
+        return "BaseballNumbers : " + numbersStr;
+    }
 }
