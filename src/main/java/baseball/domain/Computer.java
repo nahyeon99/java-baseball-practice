@@ -9,7 +9,7 @@ public class Computer {
         this.numbersGenerator = numbersGenerator;
     }
 
-    private BaseballNumbers generate() {
+    public BaseballNumbers generate() {
         return numbersGenerator.generate();
     }
 }

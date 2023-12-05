@@ -12,4 +12,8 @@ public record ResultDto(int strikeCount, int ballCount) {
     public boolean isZeroFromBall() {
         return ballCount == 0;
     }
+
+    public boolean is3Strike() {
+        return strikeCount == 3;
+    }
 }
