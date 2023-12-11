@@ -1,6 +1,12 @@
 package baseball.dto;
 
+import baseball.domain.BaseballNumbers;
+
 public record HintDto(int strikeCount, int ballCount) {
+
+    public static HintDto of(BaseballNumbers computer, BaseballNumbers user) {
+        return new HintDto(computer.getStrikeCount(user), computer.getBallCount(user));
+    }
 
     public boolean isStrike() {
         return strikeCount > 0;

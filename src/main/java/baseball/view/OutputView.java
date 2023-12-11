@@ -1,8 +1,6 @@
 package baseball.view;
 
 import baseball.dto.HintDto;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class OutputView {
 
